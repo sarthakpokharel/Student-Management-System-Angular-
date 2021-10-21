@@ -1,0 +1,24 @@
+<h3>List of Stuudents</h3>
+
+<table class="table" datatable [dtOptions]="dtOptions"> 
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of studentData | async">
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>
+          <a routerLink="/edit/{{i.id}}"><button class="btn btn-primary">Edit</button></a>
+          &nbsp; <!--Used for giving tabs-->
+          <button type="button" class="btn btn-danger" (click)="deleteStudent(i.id)">Delete</button>         
+        </td>
+      </tr>
+    </tbody>
+  </table>
